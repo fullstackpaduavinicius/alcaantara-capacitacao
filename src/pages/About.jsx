@@ -1,7 +1,16 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Card } from '../components/ui/Card'
 
 const About = () => {
+  // Efeito para rolar para o topo quando a página é carregada
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [])
+
   return (
     <div className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">

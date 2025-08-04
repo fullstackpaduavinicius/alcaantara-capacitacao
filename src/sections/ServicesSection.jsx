@@ -1,31 +1,31 @@
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/Card'
 import { motion } from 'framer-motion'
-import { FaChalkboardTeacher, FaHandshake, FaBookOpen } from 'react-icons/fa'
+import { FaBalanceScale, FaSyncAlt, FaUserShield } from 'react-icons/fa'
 
 const services = [
   {
-    icon: <FaChalkboardTeacher className="h-8 w-8 text-primary-600" />,
-    title: "Cursos de Capacitação",
-    description: "Treinamentos especializados em licitações, contratos e gestão pública para servidores e gestores.",
-    link: "/servicos/capacitacao"
+    icon: <FaBalanceScale className="h-8 w-8 text-[#2D6A4F]" />,
+    title: "Regulamentação da Nova Lei",
+    description: "Apoio completo na estruturação e revisão de regulamentos e fluxos internos conforme a Lei nº 14.133/2021.",
+    link: "/servicos/regulamentacao"
   },
   {
-    icon: <FaHandshake className="h-8 w-8 text-primary-600" />,
-    title: "Consultoria em Licitações",
-    description: "Assessoria técnica para processos licitatórios, desde o planejamento até a homologação.",
+    icon: <FaSyncAlt className="h-8 w-8 text-[#2D6A4F]" />,
+    title: "Atualização de Estatais",
+    description: "Consultoria para revisão dos regulamentos das empresas estatais conforme a Lei nº 13.303/2016.",
+    link: "/servicos/estatais"
+  },
+  {
+    icon: <FaUserShield className="h-8 w-8 text-[#2D6A4F]" />,
+    title: "Consultoria sob Demanda",
+    description: "Atendimento contínuo e personalizado para dúvidas práticas e apoio na gestão de contratações públicas.",
     link: "/servicos/consultoria"
-  },
-  {
-    icon: <FaBookOpen className="h-8 w-8 text-primary-600" />,
-    title: "Material Didático",
-    description: "Produção de manuais, guias e apostilas especializadas em legislação pública.",
-    link: "/servicos/material"
   }
 ]
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-16 bg-white">
+    <section id="servicos" className="py-16 bg-[#F8F9FA]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,9 +34,9 @@ const ServicesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Nossos Serviços</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Soluções completas para capacitação e desenvolvimento da gestão pública
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1B4332]">Consultoria Especializada</h2>
+          <p className="text-lg text-[#495057] max-w-2xl mx-auto">
+            Soluções técnicas e estratégicas para fortalecer a gestão pública em todas as etapas da contratação
           </p>
         </motion.div>
 
@@ -52,19 +52,19 @@ const ServicesSection = () => {
               <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
                   <div className="flex items-center">
-                    <div className="p-3 bg-primary-50 rounded-full mr-4">
+                    <div className="p-3 bg-[#E9F5EE] rounded-full mr-4">
                       {service.icon}
                     </div>
-                    <CardTitle>{service.title}</CardTitle>
+                    <CardTitle className="text-[#1B4332]">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{service.description}</p>
+                  <p className="text-[#495057]">{service.description}</p>
                 </CardContent>
                 <CardFooter>
-                  <a 
-                    href={service.link} 
-                    className="text-primary-600 hover:text-primary-700 font-medium flex items-center"
+                  <a
+                    href={service.link}
+                    className="text-[#D4AF37] hover:text-[#c69c2c] font-medium flex items-center"
                   >
                     Saiba mais
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,9 +1,10 @@
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-import { motion } from 'framer-motion'
-import { Button } from '../components/ui/Button'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { motion } from 'framer-motion';
+import { Button } from '../components/ui/Button';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 const schema = yup.object().shape({
   name: yup.string().required('Nome é obrigatório'),
@@ -11,17 +12,25 @@ const schema = yup.object().shape({
   phone: yup.string().required('Telefone é obrigatório'),
   subject: yup.string().required('Assunto é obrigatório'),
   message: yup.string().required('Mensagem é obrigatória').min(10, 'Mínimo 10 caracteres'),
-})
+});
 
 const Contact = () => {
+  // Efeito para rolar para o topo quando a página é carregada
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
-  })
+  });
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     // Implementar envio do formulário
-  }
+  };
 
   return (
     <div className="py-16 bg-white">
@@ -183,7 +192,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
