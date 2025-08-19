@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -8,7 +8,6 @@ import {
   FaMapMarkerAlt,
   FaPhone,
   FaEnvelope,
-  FaWhatsapp,
   FaInstagram,
   FaLinkedin
 } from 'react-icons/fa';
@@ -21,28 +20,62 @@ const schema = yup.object().shape({
   message: yup.string().required('Mensagem é obrigatória').min(10, 'Mínimo 10 caracteres'),
 });
 
+const CONTACT_EMAIL = 'marcusalcantara@gmail.com';
+
 const Contact = () => {
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => {
-    // Montar mensagem formatada para WhatsApp
-    const msg = `📩 *Novo Contato pelo Site*\n\n` +
-      `👤 *Nome:* ${data.name}\n` +
-      `📧 *E-mail:* ${data.email}\n` +
-      `📞 *Telefone:* ${data.phone}\n` +
-      `📝 *Assunto:* ${data.subject}\n\n` +
-      `💬 *Mensagem:*\n${data.message}`;
+  // Enviar por e-mail usando FormSubmit
+  const onSubmit = async (data) => {
+    setSending(true);
+    setSent(false);
+    setErrorMsg('');
 
-    const phone = "5579988187788"; // número destino
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    try {
+      const payload = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+        _subject: 'Novo contato – Site ALCÂNTARA',
+        _replyto: data.email,
+        _template: 'table',
+        _captcha: 'false',
+      };
 
-    window.open(url, "_blank");
+      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        let msg = 'Falha ao enviar. Tente novamente.';
+        try {
+          const j = await res.json();
+          if (j?.message) msg = j.message;
+        } catch (_) {}
+        throw new Error(msg);
+      }
+
+      setSent(true);
+      reset();
+    } catch (err) {
+      setErrorMsg(err.message || 'Não foi possível enviar sua mensagem agora.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -78,7 +111,7 @@ const Contact = () => {
                   id="name"
                   type="text"
                   {...register('name')}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
               </div>
@@ -92,7 +125,7 @@ const Contact = () => {
                     id="email"
                     type="email"
                     {...register('email')}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
                 </div>
@@ -105,7 +138,7 @@ const Contact = () => {
                     id="phone"
                     type="tel"
                     {...register('phone')}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
                   />
                   {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
                 </div>
@@ -118,7 +151,7 @@ const Contact = () => {
                 <select
                   id="subject"
                   {...register('subject')}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
                 >
                   <option value="">Selecione um assunto</option>
                   <option value="Cursos e Capacitações">Cursos e Capacitações</option>
@@ -137,14 +170,32 @@ const Contact = () => {
                   id="message"
                   rows={5}
                   {...register('message')}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
               </div>
 
+              {/* Estados de envio */}
+              {sent && (
+                <p className="text-sm text-green-600">
+                  ✅ Mensagem enviada com sucesso! Verifique o e-mail <b>{CONTACT_EMAIL}</b>.
+                </p>
+              )}
+              {errorMsg && (
+                <p className="text-sm text-red-600">
+                  ❌ {errorMsg}
+                </p>
+              )}
+
               <div>
-                <Button type="submit" variant="primary" className="w-full">
-                  Enviar Mensagem via WhatsApp
+                <Button
+                  type="submit"
+                  variant="primary"
+                  className="w-full bg-gray-700 hover:bg-gray-800 text-white flex items-center justify-center gap-2"
+                  disabled={sending}
+                >
+                  <FaEnvelope className="h-5 w-5" />
+                  {sending ? 'Enviando…' : 'Enviar E-mail'}
                 </Button>
               </div>
             </form>
@@ -162,7 +213,7 @@ const Contact = () => {
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <FaMapMarkerAlt className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <FaMapMarkerAlt className="h-6 w-6 text-gray-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">Endereço</h3>
                   <p className="text-gray-600">
@@ -173,53 +224,44 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start">
-                <FaPhone className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <FaPhone className="h-6 w-6 text-gray-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">Telefone</h3>
                   <p className="text-gray-600">
-                    <a href="tel:+5579988187788" className="hover:text-primary-600">(79) 98818-7788</a>
+                    <a href="tel:+5579988187788" className="hover:text-gray-800">(79) 98818-7788</a>
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaEnvelope className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <FaEnvelope className="h-6 w-6 text-gray-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">E-mail</h3>
                   <p className="text-gray-600">
-                    <a href="mailto:marcusalcantara@gmail.com" className="hover:text-primary-600">marcusalcantara@gmail.com</a>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-gray-800">{CONTACT_EMAIL}</a>
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaInstagram className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <FaInstagram className="h-6 w-6 text-gray-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">Instagram</h3>
                   <p className="text-gray-600">
-                    <a href="https://instagram.com/marcusalcantara_aju" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600">@marcusalcantara_aju</a>
+                    <a href="https://instagram.com/marcusalcantara_aju" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800">@marcusalcantara_aju</a>
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <FaLinkedin className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <FaLinkedin className="h-6 w-6 text-gray-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">LinkedIn</h3>
                   <p className="text-gray-600">
-                    <a href="https://www.linkedin.com/in/marcus-alcantara" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600">Marcus Alcantara</a>
+                    <a href="https://www.linkedin.com/in/marcus-alcantara" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800">Marcus Alcantara</a>
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-8">
-              <Button variant="secondary" className="w-full" asChild>
-                <a href="https://wa.me/5579988187788" target="_blank" rel="noopener noreferrer">
-                  <FaWhatsapp className="h-5 w-5 mr-2" />
-                  Conversar no WhatsApp
-                </a>
-              </Button>
             </div>
           </motion.div>
         </div>
