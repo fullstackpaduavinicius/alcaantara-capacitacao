@@ -20,7 +20,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <NavLink to="/" className="flex items-center">
             <img 
-              src="/images/logo.png" 
+              src="/images/image.png" 
               alt="Marcus Alcantara Capacitação" 
               className="h-12"
             />
@@ -41,11 +41,7 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Button variant="secondary" size="sm" asChild>
-              <NavLink to="/contato">
-                Fale Conosco
-              </NavLink>
-            </Button>
+            
           </nav>
 
           <div className="md:hidden">

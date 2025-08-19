@@ -3,20 +3,15 @@ import { motion } from 'framer-motion';
 import { FaGavel, FaUniversity, FaClipboardList } from 'react-icons/fa';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-// Se o <ServicesSection /> tiver conteúdo que você quer manter (ex.: hero), mantenha.
-// Caso contrário, pode remover a import e o componente abaixo.
-import ServicesSection from '../sections/ServicesSection';
 
 const Services = () => {
-  // WhatsApp unificado (mantive o que estava no seu arquivo)
-  const phoneNumber = '5579988776655';
+  const phoneNumber = '5579988187788';
 
   const handleWhatsAppClick = (message) => {
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
 
-  // Conteúdo substituído pelo texto enviado pelo cliente
   const services = [
     {
       icon: <FaGavel className="h-8 w-8 text-[#2D6A4F]" />,
@@ -82,11 +77,9 @@ const Services = () => {
 
   return (
     <div id="servicos" className="py-16 bg-[#F8F9FA]">
-      {/* Opcional: mantenha se o componente já existia como hero/intro */}
-      <ServicesSection />
+      {/* HERO/Intro removido: conteúdo "Consultoria Especializada / Saiba mais" foi eliminado */}
 
-      {/* Bloco institucional curto (alinhado ao texto enviado) */}
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,17 +88,17 @@ const Services = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1B4332]">
-            Serviços de Consultoria Especializada
+            Serviços de Consultoria
           </h2>
           <p className="text-lg text-[#343A40] max-w-4xl mx-auto">
-            A ALCANTARA CAPACITAÇÃO E EVENTOS LTDA oferece consultoria altamente especializada
-            para fortalecer a governança pública e adequar órgãos e entidades às normas de
-            contratações. Unimos conhecimento técnico, experiência prática e compromisso com a
-            transparência, eficiência e segurança jurídica.
+            A ALCÂNTARA CAPACITAÇÃO E EVENTOS LTDA oferece consultoria especializada para fortalecer
+            a governança pública e adequar órgãos e entidades às normas de contratações. Unimos
+            conhecimento técnico, experiência prática e compromisso com a transparência, eficiência
+            e segurança jurídica.
           </p>
         </motion.div>
 
-        {/* Cards de serviços (3 itens enviados) */}
+        {/* Cards de serviços (3 itens) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((s, idx) => (
             <motion.div
@@ -121,9 +114,7 @@ const Services = () => {
                     {s.icon}
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#343A40] leading-snug">
-                    {s.title}
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#343A40] leading-snug">{s.title}</h3>
                   {s.subtitle && (
                     <p className="text-sm text-[#495057] mt-1">{s.subtitle}</p>
                   )}
@@ -170,9 +161,6 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Observação de UX (opcional, pode remover em produção) */}
-        {/* Mantivemos apenas um rótulo de CTA padronizado: "Fale conosco" */}
       </div>
     </div>
   );

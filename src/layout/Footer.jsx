@@ -20,14 +20,8 @@ const Footer = () => {
           {/* Marca + descrição + sociais */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <img
-                src="/images/logo-white.png"
-                alt="ALCÂNTARA Capacitação"
-                className="h-10"
-              />
-              <span className="ml-3 text-xl font-serif font-bold text-white">
-                ALCÂNTARA Capacitação
-              </span>
+              
+              
             </div>
 
             <p className="text-gray-300 mb-4">
@@ -114,7 +108,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-6 text-center text-gray-400">
           <p>
-            &copy; {currentYear} ALCÂNTARA CAPACITAÇÃO E EVENTOS LTDA. Todos os direitos
+            &copy; {currentYear} Alcantara Capacitação E EVENTOS LTDA. Todos os direitos
             reservados.
           </p>
           <p className="mt-1 text-sm">CNPJ: 12.575.826/0001-68</p>

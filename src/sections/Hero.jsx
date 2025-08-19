@@ -4,14 +4,23 @@ import { Button } from '@/components/ui/Button'
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-[#1B4332] to-[#2D6A4F] text-white overflow-hidden">
-      <div className="container mx-auto px-4 py-24 md:py-32 lg:py-40">
+    <section className="relative text-white overflow-hidden">
+      {/* Imagem de fundo */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/banner_hero.png')" }}
+      ></div>
+
+      {/* Overlay degradê para contraste */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1B4332]/80 to-[#2D6A4F]/80"></div>
+
+      <div className="relative container mx-auto px-4 py-24 md:py-32 lg:py-40">
         <div className="max-w-3xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif text-white"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif"
           >
             Capacitação e Consultoria para a Gestão Pública
           </motion.h1>
