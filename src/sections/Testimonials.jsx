@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Carlos Eduardo",
     role: "Secretário de Administração - Prefeitura de Aracaju",
-    content: "Os cursos da Alcaântara revolucionaram nossa forma de lidar com licitações. O conhecimento adquirido trouxe economia significativa aos cofres públicos.",
+    content: "Os cursos da Alcantara revolucionaram nossa forma de lidar com licitações. O conhecimento adquirido trouxe economia significativa aos cofres públicos.",
     avatar: "/images/avatars/1.jpg"
   },
   {

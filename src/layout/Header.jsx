@@ -21,11 +21,11 @@ const Header = () => {
           <NavLink to="/" className="flex items-center">
             <img 
               src="/images/logo.png" 
-              alt="Alcaântara Capacitação" 
+              alt="Marcus Alcantara Capacitação" 
               className="h-12"
             />
             <span className="ml-3 text-xl font-serif font-bold text-primary-600">
-              Alcaântara Capacitação
+              Alcantara Capacitação
             </span>
           </NavLink>
 

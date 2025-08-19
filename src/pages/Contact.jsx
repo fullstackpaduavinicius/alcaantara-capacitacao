@@ -4,7 +4,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaInstagram,
+  FaLinkedin
+} from 'react-icons/fa';
 
 const schema = yup.object().shape({
   name: yup.string().required('Nome é obrigatório'),
@@ -15,12 +22,8 @@ const schema = yup.object().shape({
 });
 
 const Contact = () => {
-  // Efeito para rolar para o topo quando a página é carregada
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -28,8 +31,18 @@ const Contact = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    // Implementar envio do formulário
+    // Montar mensagem formatada para WhatsApp
+    const msg = `📩 *Novo Contato pelo Site*\n\n` +
+      `👤 *Nome:* ${data.name}\n` +
+      `📧 *E-mail:* ${data.email}\n` +
+      `📞 *Telefone:* ${data.phone}\n` +
+      `📝 *Assunto:* ${data.subject}\n\n` +
+      `💬 *Mensagem:*\n${data.message}`;
+
+    const phone = "5579988187788"; // número destino
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+    window.open(url, "_blank");
   };
 
   return (
@@ -49,6 +62,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Formulário */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -107,10 +121,10 @@ const Contact = () => {
                   className={`w-full px-4 py-3 rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-300'} focus:ring-primary-500 focus:border-primary-500`}
                 >
                   <option value="">Selecione um assunto</option>
-                  <option value="courses">Cursos e Capacitações</option>
-                  <option value="consulting">Consultoria</option>
-                  <option value="partnership">Parcerias</option>
-                  <option value="other">Outros</option>
+                  <option value="Cursos e Capacitações">Cursos e Capacitações</option>
+                  <option value="Consultoria">Consultoria</option>
+                  <option value="Parcerias">Parcerias</option>
+                  <option value="Outros">Outros</option>
                 </select>
                 {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>}
               </div>
@@ -130,12 +144,13 @@ const Contact = () => {
 
               <div>
                 <Button type="submit" variant="primary" className="w-full">
-                  Enviar Mensagem
+                  Enviar Mensagem via WhatsApp
                 </Button>
               </div>
             </form>
           </motion.div>
 
+          {/* Informações de contato */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -144,13 +159,16 @@ const Contact = () => {
             className="bg-gray-50 p-8 rounded-lg"
           >
             <h2 className="text-2xl font-bold mb-6 text-gray-900">Informações de Contato</h2>
-            
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <FaMapMarkerAlt className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-gray-900">Endereço</h3>
-                  <p className="text-gray-600">Av. Ministro Geraldo Barreto Sobral, 2150<br />Jardins, Aracaju/SE</p>
+                  <p className="text-gray-600">
+                    Av. Jorge Amado, nº 1565, Sala 04 e 06<br />
+                    Bairro Jardins – Aracaju/SE – CEP 49025-330
+                  </p>
                 </div>
               </div>
 
@@ -169,20 +187,35 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-gray-900">E-mail</h3>
                   <p className="text-gray-600">
-                    <a href="mailto:marcusalcantara@gmail.com" className="hover:text-primary-600">marcus@alcantara.com</a>
+                    <a href="mailto:marcusalcantara@gmail.com" className="hover:text-primary-600">marcusalcantara@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <FaInstagram className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <div>
+                  <h3 className="font-bold text-gray-900">Instagram</h3>
+                  <p className="text-gray-600">
+                    <a href="https://instagram.com/marcusalcantara_aju" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600">@marcusalcantara_aju</a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <FaLinkedin className="h-6 w-6 text-primary-600 mt-1 mr-4 flex-shrink-0" />
+                <div>
+                  <h3 className="font-bold text-gray-900">LinkedIn</h3>
+                  <p className="text-gray-600">
+                    <a href="https://www.linkedin.com/in/marcus-alcantara" target="_blank" rel="noopener noreferrer" className="hover:text-primary-600">Marcus Alcantara</a>
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-8">
-              <h3 className="font-bold text-gray-900 mb-4">Horário de Atendimento</h3>
-              <p className="text-gray-600">Segunda a Sexta: 8h às 18h</p>
-            </div>
-
-            <div className="mt-8">
               <Button variant="secondary" className="w-full" asChild>
-                <a href="https://wa.me/5579988187788">
+                <a href="https://wa.me/5579988187788" target="_blank" rel="noopener noreferrer">
                   <FaWhatsapp className="h-5 w-5 mr-2" />
                   Conversar no WhatsApp
                 </a>

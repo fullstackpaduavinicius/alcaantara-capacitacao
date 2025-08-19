@@ -14,7 +14,7 @@ const AboutPreview = () => {
           >
             <img 
               src="/images/about-preview.jpg" 
-              alt="Sobre a Alcaântara" 
+              alt="Sobre a Alcantara" 
               className="rounded-lg shadow-md w-full border-4 border-[#D4AF37]" /* dourado */
             />
           </motion.div>
@@ -29,13 +29,13 @@ const AboutPreview = () => {
               Mais de 15 anos capacitando servidores públicos
             </h2>
             <p className="text-lg text-[#343A40] mb-6"> {/* cinzaEscuro */}
-              Desde 2010, a Alcaântara Capacitação tem se dedicado ao fortalecimento da gestão pública através 
+              Desde 2010, a Alcantara Capacitação tem se dedicado ao fortalecimento da gestão pública através 
               de treinamentos especializados e consultorias técnicas.
             </p>
             <ul className="space-y-3 mb-8">
               {[
-                "Mais de 500 servidores capacitados",
-                "Atuação em 8 estados brasileiros",
+                "Milhares de servidores capacitados",
+                "Atuação em diversos estados da Federação",
                 "Equipe de especialistas com experiência prática",
                 "Material didático atualizado"
               ].map((item, index) => (

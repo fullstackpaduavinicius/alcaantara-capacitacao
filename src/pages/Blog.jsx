@@ -75,7 +75,7 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Blog - Alcaântara Capacitação</title>
+        <title>Blog - Alcantara Capacitação</title>
         <meta name="description" content="Artigos e dicas sobre capacitação profissional, carreira e desenvolvimento" />
       </Helmet>
 

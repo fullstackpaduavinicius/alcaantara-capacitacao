@@ -21,7 +21,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Sobre a Alcaântara Capacitação</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Sobre a Alcantara Capacitação</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Conheça nossa trajetória, missão e valores que nos guiam desde 2010
           </p>
@@ -36,7 +36,7 @@ const About = () => {
           >
             <img 
               src="/images/about.jpg" 
-              alt="Equipe Alcaântara" 
+              alt="Equipe Alcantara" 
               className="rounded-lg shadow-md w-full"
             />
           </motion.div>
@@ -51,9 +51,9 @@ const About = () => {
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-4 text-gray-900">Nossa História</h2>
                 <p className="text-gray-600 mb-4">
-                  Fundada em 2010, a Alcaântara Capacitação surgiu da necessidade de capacitação técnica 
-                  especializada para servidores públicos. Ao longo dos anos, nos tornamos referência 
-                  em treinamentos para gestão pública no Nordeste.
+                  Fundada em 2010, a Alcantara Capacitação surgiu da necessidade de capacitação técnica 
+                  especializada para servidores públicos. Ao longo dos anos, tornamo-nos referência 
+                  em treinamentos para gestão pública.
                 </p>
                 
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 mt-6">Missão</h2>
@@ -65,7 +65,7 @@ const About = () => {
                 
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 mt-6">Valores</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {['Ética', 'Integridade', 'Comprometimento', 'Profissionalismo', 'Responsabilidade social', 'Modernização', 'Excelência técnica'].map((value, index) => (
+                  {['Ética', 'Integridade', 'Comprometimento', 'Profissionalismo', 'Responsabilidade social', 'Modernização', 'Excelência técnica', 'Inovação'].map((value, index) => (
                     <li key={index} className="flex items-center">
                       <span className="bg-primary-100 text-primary-800 p-2 rounded-full mr-3">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
