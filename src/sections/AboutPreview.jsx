@@ -13,7 +13,7 @@ const AboutPreview = () => {
             transition={{ duration: 0.5 }}
           >
             <img 
-              src="/images/about-preview.jpg" 
+              src="/images/about-preview.png" 
               alt="Sobre a Alcantara" 
               className="rounded-lg shadow-md w-full border-4 border-[#D4AF37]" /* dourado */
             />

@@ -25,6 +25,7 @@ const Services = () => {
         'Adequação dos fluxos de trabalho às fases de planejamento, seleção e execução contratual;',
         'Criação de manuais e guias práticos para servidores;',
         'Capacitação das equipes responsáveis pelas contratações.',
+        'Elaboração ou atualização de regulamentos internos de licitações e contratos de empresas estatais (Lei 13.303/2006)'
       ],
       closing:
         'Proporcionamos uma transição segura para o novo marco legal, promovendo eficiência, integridade e padronização nos processos.',
@@ -34,16 +35,21 @@ const Services = () => {
     },
     {
       icon: <FaUniversity className="h-8 w-8 text-[#2D6A4F]" />,
-      title: 'Regulamentação da Lei nº 13.303/2016',
+      title: 'Capacitação (Cursos In Company)',
       subtitle: 'Lei das Estatais',
       intro:
-        'Oferecemos suporte técnico na elaboração e revisão dos regulamentos de licitações e contratos das empresas estatais, em conformidade com a Lei nº 13.303/2016.',
+        'A Alcântara Capacitação oferece cursos práticos e atualizados em gestão pública, com foco na Lei de Licitações, controles internos e governança, voltados a órgãos públicos e escolas de governo.',
       bulletsTitle: 'Entre as entregas, destacam-se:',
       bullets: [
-        'Elaboração ou atualização de regulamentos internos de licitações e contratos;',
-        'Alinhamento às boas práticas de governança corporativa e compliance;',
-        'Orientações para a implementação de critérios objetivos de seleção e contratação;',
-        'Fortalecimento dos mecanismos de controle e mitigação de riscos.',
+        'Aprofundamento na fase preparatória das contratações públicas, com foco no PCA, DFD, ETP, TR e Mapa de riscos.;',
+        'Capacitação completa sobre as responsabilidades legais, atribuições e boas práticas de fiscalização e gestão contratual.;',
+        'Estudo prático e jurídico do SRP, incluindo atas, caronas e planejamento da demanda.;',
+        'Análise técnica das hipóteses de dispensa e inexigibilidade, riscos e documentação exigida.',
+        'O novo papel das unidades de controle interno nas contratações públicas e na responsabilização dos agentes.',
+        'Metodologias e práticas para estruturação de sistemas de controle e mapeamento de riscos na Administração Pública.',
+        'Explanação sobre credenciamento, pré-qualificação, sistema de registro de preços e outros mecanismos auxiliares da nova lei.',
+        'Tratamento favorecido às micro e pequenas empresas, critérios de habilitação, regularização e aplicação prática.',
+        'Treinamento voltado à atuação das unidades de auditoria interna, com foco nas contratações públicas e de acordo com as normas globais de auditoria e boas práticas governamentais.',
       ],
       closing:
         'Garantimos atuação eficiente, transparente e competitiva, em ambiente jurídico seguro.',

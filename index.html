@@ -2,13 +2,117 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alcanftara - Capacitação e Consultoria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Título + Meta Descrição -->
+    <title>ALCÂNTARA – Capacitação e Consultoria em Gestão Pública</title>
+    <meta name="description" content="Cursos e consultoria em gestão pública com foco na Lei 14.133/2021, controles internos e governança. Treinamentos práticos para órgãos públicos, tribunais de contas e escolas de governo." />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://alcantaracapacitacao.com.br/" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Viewport + Tema -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2D6A4F" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+
+    <!-- Open Graph (Facebook/WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ALCÂNTARA Capacitação" />
+    <meta property="og:title" content="ALCÂNTARA – Capacitação e Consultoria em Gestão Pública" />
+    <meta property="og:description" content="Cursos e consultoria em gestão pública com foco na Lei 14.133/2021, controles internos e governança." />
+    <meta property="og:url" content="https://alcantaracapacitacao.com.br/" />
+    <!-- Quando compartilhar o link, esta imagem aparece -->
+    <meta property="og:image" content="/images/logo.jpg" />
+    <meta property="og:image:alt" content="Logomarca ALCÂNTARA Capacitação" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ALCÂNTARA – Capacitação e Consultoria em Gestão Pública" />
+    <meta name="twitter:description" content="Cursos e consultoria em gestão pública com foco na Lei 14.133/2021, controles internos e governança." />
+    <meta name="twitter:image" content="/images/logo.jpg" />
+    <meta name="twitter:image:alt" content="Logomarca ALCÂNTARA Capacitação" />
+
+    <!-- Idiomas -->
+    <link rel="alternate" hreflang="pt-BR" href="https://alcantaracapacitacao.com.br/" />
+    <link rel="alternate" hreflang="x-default" href="https://alcantaracapacitacao.com.br/" />
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicons / App Icons -->
+    <!-- Usando logo.jpg como fallback visível e ícone básico -->
+    <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+    <!-- Recomendado: PNGs específicos (se possível, exporte esses arquivos) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload da logo para aparecer instantaneamente -->
+    <link rel="preload" as="image" href="/images/logo.jpg" fetchpriority="high" />
+
+    <!-- Estrutura de Dados: Organização -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"Organization",
+        "name":"ALCÂNTARA Capacitação e Eventos LTDA",
+        "url":"https://alcantaracapacitacao.com.br/",
+        "logo":"https://alcantaracapacitacao.com.br/images/logo.jpg",
+        "description":"Cursos e consultoria em gestão pública com foco na Lei 14.133/2021, controles internos e governança.",
+        "sameAs":[
+          "https://www.linkedin.com/",
+          "https://www.instagram.com/marcusalcantara_aju"
+        ],
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"Av. Jorge Amado, 1565, Sala 04 e 06 – Bairro Jardins",
+          "addressLocality":"Aracaju",
+          "addressRegion":"SE",
+          "postalCode":"49025-330",
+          "addressCountry":"BR"
+        },
+        "contactPoint":[
+          {
+            "@type":"ContactPoint",
+            "contactType":"Atendimento",
+            "telephone":"+55-79-98818-7788",
+            "areaServed":"BR",
+            "availableLanguage":["Portuguese"]
+          }
+        ]
+      }
+    </script>
+
+    <!-- Estrutura de Dados: Website + SearchAction -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "name":"ALCÂNTARA – Capacitação e Consultoria",
+        "url":"https://alcantaracapacitacao.com.br/",
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://alcantaracapacitacao.com.br/?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
+      }
+    </script>
   </head>
+
   <body>
+    <noscript>Ative o JavaScript para uma melhor experiência.</noscript>
     <div id="root"></div>
+    <!-- Vite/React -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -35,7 +35,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <img 
-              src="/images/about.jpg" 
+              src="/images/img_sobre.png" 
               alt="Equipe Alcantara" 
               className="rounded-lg shadow-md w-full"
             />
@@ -51,9 +51,7 @@ const About = () => {
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-4 text-gray-900">Nossa História</h2>
                 <p className="text-gray-600 mb-4">
-                  Fundada em 2010, a Alcantara Capacitação surgiu da necessidade de capacitação técnica 
-                  especializada para servidores públicos. Ao longo dos anos, tornamo-nos referência 
-                  em treinamentos para gestão pública.
+                  Fundada em 2010, a Alcantara Capacitação surgiu da necessidade de capacitação técnica especializada para servidores públicos. Sob a coordenação técnica do nosso Professor Marcus Alcântara, ao longo dos anos, tornamo-nos referência em treinamentos para gestão pública
                 </p>
                 
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 mt-6">Missão</h2>
