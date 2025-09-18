@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Serviços', to: '/servicos' },
   { name: 'Blog', to: '/blog' },
   { name: 'Contato', to: '/contato' },
+  { name: 'Cursos', to: '/cursos' },
 ]
 
 const Header = () => {

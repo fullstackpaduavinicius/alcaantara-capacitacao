@@ -53,17 +53,18 @@ const Footer = () => {
 
           {/* Navegação */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Links Rápidos</h3>
-            <ul className="space-y-2">
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <NavLink to={item.to} className="text-gray-300 hover:text-white">
-                    {item.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <h3 className="text-lg font-bold mb-4 text-white">Links Rápidos</h3>
+  <ul className="space-y-2">
+    {navigation.map((item) => (
+      <li key={item.name}>
+        <NavLink to={item.to} className="text-gray-300 hover:text-white">
+          {item.name}
+        </NavLink>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
           {/* Contato */}
           <div>
